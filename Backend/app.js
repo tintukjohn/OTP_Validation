@@ -6,6 +6,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser');
 const PORT = 3000;
 
+
 require('./Middlewares/mongoDB')
 app.use(express.json()) 
 app.use(express.urlencoded({extended:true}))
