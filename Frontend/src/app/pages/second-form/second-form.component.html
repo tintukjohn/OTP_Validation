@@ -1,0 +1,19 @@
+<div class="container pt-4 mt-4">
+    <h1 class="text-center">Second Form</h1>
+
+<form class="form col-md-6" #loginform="ngForm" (ngSubmit)="userVerify()">
+  <div class="mb-3 form-group">
+    <label for="exampleInputOTP1" class="form-label">OTP</label>
+    <input type="otp" class="form-control" name="otp" [(ngModel)]="User.otp" #otp="ngModel"
+      [class.is-invalid]="otp.touched&&otp.invalid" pattern='^\d+$'  required>
+    <span class="text-danger" [class.d-none]="otp.touched||otp.valid">OTP is not valid!</span>
+  </div>
+  <div class="mb-3 form-group">
+    <label for="exampleInputPassword1" class="form-label">Message</label>
+    <textarea type="password" class="form-control" name="message" [(ngModel)]="User.message" #message="ngModel"
+      [class.is-invalid]="message.touched&&message.invalid" required></textarea>
+    <span class="text-danger" [class.d-none]="message.touched||message.valid">Message must not vacant!</span>
+  </div>
+  <button type="submit" [disabled]="loginform.form.invalid" class="btn btn-primary">Login</button>
+  </form>
+  </div>

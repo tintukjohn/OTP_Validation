@@ -1,0 +1,19 @@
+<div class="container pt-4 mt-4">
+    <h1 class="text-center">Login Form</h1>
+
+<form class="form col-md-6" #loginform="ngForm" (ngSubmit)="userVerify()">
+  <div class="mb-3 form-group">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" name="email" [(ngModel)]="User.email" #email="ngModel"
+      [class.is-invalid]="email.touched&&email.invalid" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" required>
+    <span class="text-danger" [class.d-none]="email.touched||email.valid">Email is not valid!</span>
+  </div>
+  <div class="mb-3 form-group">
+    <label for="exampleInputPassword1" class="form-label">Message</label>
+    <textarea type="password" class="form-control" name="message" [(ngModel)]="User.message" #message="ngModel"
+      [class.is-invalid]="message.touched&&message.invalid" required></textarea>
+    <span class="text-danger" [class.d-none]="message.touched||message.valid">Message must not vacant!</span>
+  </div>
+  <button type="submit" [disabled]="loginform.form.invalid" class="btn btn-primary">Login</button>
+  </form>
+  </div>
